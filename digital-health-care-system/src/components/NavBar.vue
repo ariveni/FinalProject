@@ -2,7 +2,7 @@
   <div class="main">
     <ul>
       <li>
-        <router-link to="/"><LogoImage logostyle="logo" /></router-link>
+        <router-link to="/"><LogoImage logostyle="nav-logo" /></router-link>
       </li>
       <div class="menu">
         <li>

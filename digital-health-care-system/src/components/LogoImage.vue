@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="log-container">
     <img
-      :class="logostyle"
+      class="main-logo"
       src="../assets/ProjectLogo.png"
       alt="Digital Health Care System"
     />
@@ -14,17 +14,28 @@ defineProps({
 });
 </script>
 <style scoped>
-.main {
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  border-radius: 5%;
-  width: 600px;
-  height: 400px;
+.logo-container {
+  margin: 0;
+  padding: 0;
+  width: 30%;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.logo {
-  width: 200px;
+.nav-logo {
+  width: 30%;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-logo {
+  width: 100px;
+  height: 100px;
+}
+.form-logo {
+  width: 50px;
+  height: 50px;
 }
 </style>

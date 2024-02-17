@@ -1,9 +1,9 @@
 <template>
-  <div class="main">
-    <div class="logo">
+  <div class="main-container">
+    <div class="logo-container">
       <LogoImage logostyle="main" />
     </div>
-    <div class="userform">
+    <div class="form-container">
       <DetailsForm />
     </div>
   </div>
@@ -13,21 +13,19 @@ import LogoImage from "../components/LogoImage.vue";
 import DetailsForm from "./DetailsForm.vue";
 </script>
 <style scoped>
-.main {
+.main-container {
   display: flex;
-}
-.logo {
   height: 100vh;
-  width: 50vw;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-
-.userform {
+.logo-container {
+  width: 40%;
+  background-color: #f1f1f1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+.form-container {
+  width: 60%;
+  padding: 2rem;
 }
 </style>
