@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <div class="logo-container">
-      <LogoImage logostyle="main" />
+      <LogoImage logostyle="index-style" />
     </div>
     <div class="form-container">
       <DetailsForm />
@@ -14,18 +14,24 @@ import DetailsForm from "./DetailsForm.vue";
 </script>
 <style scoped>
 .main-container {
-  display: flex;
+  margin: 0;
+  width: 100%;
   height: 100vh;
+
+  display: flex;
 }
 .logo-container {
   width: 40%;
-  background-color: #f1f1f1;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 .form-container {
   width: 60%;
-  padding: 2rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

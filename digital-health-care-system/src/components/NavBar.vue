@@ -2,7 +2,7 @@
   <div class="main">
     <ul>
       <li>
-        <router-link to="/"><LogoImage logostyle="nav-logo" /></router-link>
+        <router-link to="/"><LogoImage logostyle="home-style" /></router-link>
       </li>
       <div class="menu">
         <li>
@@ -25,17 +25,19 @@ import LogoImage from "./LogoImage.vue";
 <style scoped>
 .main {
   width: 100vw;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 ul {
   list-style: none;
   display: flex;
-  padding: 10px;
+  padding: 5px;
 }
 .menu {
   position: absolute;
   right: 100px;
   display: flex;
-  padding: 10px;
+  padding: 5px;
   justify-content: space-between;
 }
 .menu > li {
