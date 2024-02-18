@@ -1,5 +1,5 @@
 <template>
-  <div class="home-style">
+  <div class="index-style">
     <img src="../assets/Logo.png" alt="Digital Health Care System" />
   </div>
 </template>

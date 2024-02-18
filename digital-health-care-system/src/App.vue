@@ -1,10 +1,11 @@
 <template>
   <div>
-    <HomePage />
+    <IndexPage />
   </div>
 </template>
 <script setup>
-import HomePage from "./views/HomePage.vue";
+import IndexPage from "./views/IndexPage.vue";
+//import DetailsForm from "./views/DetailsForm.vue";
 </script>
 
 
