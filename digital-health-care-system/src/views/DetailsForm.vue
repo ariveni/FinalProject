@@ -54,7 +54,8 @@
 </template>
 <script setup>
 import { reactive } from "vue";
-
+import { useStore } from "vuex";
+const store = useStore();
 const user = reactive({
   fullname: "",
   age: null,
@@ -93,7 +94,7 @@ const validateForm = function () {
 const submitForm = function () {
   validateForm();
   if (errors.formIsValid === true) {
-    alert(user.fullname);
+    store.dispatch("patient/addPatient", user);
   }
 };
 </script>
@@ -164,5 +165,8 @@ h3 {
 .invalid input,
 .invalid textarea {
   border: 1px solid red;
+}
+p {
+  color: red;
 }
 </style>

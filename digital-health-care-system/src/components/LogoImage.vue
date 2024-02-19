@@ -1,6 +1,10 @@
 <template>
   <div class="index-style">
-    <img src="../assets/Logo.png" alt="Digital Health Care System" />
+    <img
+      class="logo"
+      src="../assets/Logo.png"
+      alt="Digital Health Care System"
+    />
   </div>
 </template>
 <script setup>
@@ -15,15 +19,15 @@ defineProps({
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   background-color: #fe676e;
 }
-.home-style {
-  width: 100px;
+.home {
+  width: 50px;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-img {
-  width: 100%;
-  height: 100%;
+.logo {
+  width: 200px;
+  height: 100px;
 }
 </style>

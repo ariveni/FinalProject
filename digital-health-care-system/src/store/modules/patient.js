@@ -6,7 +6,7 @@ export default {
         fullname: '',
         age: null,
         gender: '',
-        symptoms: '',
+        symptoms: [],
         disease:'',
         prescription:[],
       }
@@ -31,6 +31,14 @@ export default {
       console.log('add prescription',data);
       state.patient.prescription=data;
       console.log(state.patient);
+    }
+  },
+  actions:{
+    async addPatient(context, data)
+    {
+      console.log("Adding new Patient");
+      context.commit('addPatient', data);
+      console.log('action done');
     }
   },
   getters: {
