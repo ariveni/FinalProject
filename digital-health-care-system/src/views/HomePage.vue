@@ -14,9 +14,13 @@
         </div>
       </div>
       <div class="middlePart">
-        <ActualSymptomsVue :symptomLoc="active" />
+        <ActualSymptomsVue :symptomLoc="active" @add-symptom="pushSymptom" />
       </div>
-      <div class="rightPart"></div>
+      <div class="rightPart">
+        <div class="home-body" v-for="sym in selectedSymptoms" :key="sym">
+          <OptedSymptom :symptom="sym" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,13 +29,19 @@
 import NavBar from "../components/NavBar.vue";
 import SymptomRegion from "./SymptomRegion.vue";
 import ActualSymptomsVue from "./ActualSymptoms.vue";
+import OptedSymptom from "./OptedSymptoms.vue";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
 const locations = ref([]);
 const active = ref("Brain/Nervous System");
+const selectedSymptoms = ref([]);
 
+const pushSymptom = function (data) {
+  selectedSymptoms.value.push(data);
+  console.log(selectedSymptoms.value);
+};
 const selectedRegion = function (data) {
   active.value = data;
 };
@@ -63,6 +73,7 @@ onMounted(async () => {
 .middlePart {
   width: 60%;
   margin: 0 10px; /* Adjust margin as needed */
+  position: sticky;
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
