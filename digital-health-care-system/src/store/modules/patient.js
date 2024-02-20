@@ -13,6 +13,11 @@ export default {
     }
   },
   mutations:{
+    empty(state){
+      state.patient.disease = '';
+      state.patient.symptoms = [];
+      state.patient.prescription = [];
+    },
     addPatient(state, data){
       console.log('add patient',data);
       state.patient.fullname = data.fullname;
@@ -31,19 +36,45 @@ export default {
       console.log('add prescription',data);
       state.patient.prescription=data;
       console.log(state.patient);
+    },
+    addSymptom(state,data)
+    {
+      state.patient.symptoms.push(data)
+      console.log("added symptom");
+    },
+    dropSymptom(state,data)
+    {
+      state.patient.symptoms = state.patient.symptoms.filter((item)=> item != data);
+      console.log("droped symptom");
     }
   },
   actions:{
+    empty(context)
+    {
+      context.commit('empty')
+    },
     async addPatient(context, data)
     {
       console.log("Adding new Patient");
       context.commit('addPatient', data);
       console.log('action done');
+    },
+    addSymptom(context,data)
+    {
+      context.commit('addSymptom',data);
+    },
+    dropSymptom(context,data)
+    {
+      context.commit('dropSymptom',data);
     }
   },
   getters: {
     patient(state){
       return state.patient
+    },
+    symptoms(state)
+    {
+      return state.patient.symptoms;
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="region-container">
-    <p class="region-text">{{ props.symptom.name }}</p>
+    <p class="region-text">{{ props.symptom }}</p>
   </div>
 </template>
 <script setup>

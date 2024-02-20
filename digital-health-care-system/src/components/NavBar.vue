@@ -2,7 +2,9 @@
   <div class="main">
     <ul>
       <li>
-        <router-link to="/"><LogoImage logostyle="home-style" /></router-link>
+        <div @click="goIndex">
+          <LogoImage logostyle="home" imgstyle="logo" />
+        </div>
       </li>
       <div class="menu">
         <li>
@@ -21,6 +23,12 @@
 </template>
 <script setup>
 import LogoImage from "./LogoImage.vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const goIndex = async function () {
+  router.push("/");
+};
 </script>
 <style scoped>
 .main {

@@ -53,18 +53,23 @@ const active = ref("Brain/Nervous System");
 const selectedSymptoms = ref([]);
 
 const pushSymptom = async function (data) {
-  selectedSymptoms.value.push(data);
+  console.log(data.name);
+  await store.dispatch("patient/addSymptom", data.name);
+  selectedSymptoms.value = await store.getters["patient/symptoms"];
 };
-const deleteSymptom = function (index) {
+const deleteSymptom = async function (index) {
   selectedSymptoms.value = selectedSymptoms.value.filter(
     (id) => id.name != index
   );
+  await store.dispatch("patient/dropSymptom", index);
+  selectedSymptoms.value = await store.getters["patient/symptoms"];
 };
 const selectedRegion = function (data) {
   active.value = data;
 };
 onMounted(async () => {
   locations.value = await store.getters["symptoms/getLocations"];
+  selectedSymptoms.value = await store.getters["patient/symptoms"];
 });
 </script>
 

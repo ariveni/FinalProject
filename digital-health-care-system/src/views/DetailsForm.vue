@@ -1,60 +1,74 @@
 <template>
   <section>
     <div class="card">
-      <form @submit.prevent="submitForm">
-        <div class="form-control" :class="{ invalid: !errors.fullname }">
-          <label for="fullname">FullName</label>
-          <input
-            type="text"
-            id="fullname"
-            v-model.trim="user.fullname"
-            @blur="fullnameClear"
-          />
-          <p v-if="!errors.fullname">FullName cannot be empty</p>
-        </div>
-        <div class="form-control" :class="{ invalid: !errors.age }">
-          <label for="age">Age</label>
-          <input
-            type="text"
-            id="age"
-            v-model.trim="user.age"
-            @blur="ageClear"
-          />
-          <p v-if="!errors.age">Age cannot be empty</p>
-        </div>
-        <div class="form-control" :class="{ invalid: !errors.gender }">
-          <h3>Gender</h3>
-          <div>
+      <div class="main-container">
+        <form class="form-submission" @submit.prevent="submitForm">
+          <div class="input-text">
+            <label for="fullname"><span>FullName</span></label>
             <input
-              type="radio"
-              id="male"
-              value="M"
-              v-model="user.gender"
-              @blur="genderClear"
+              type="text"
+              id="fullname"
+              v-model.trim="user.fullname"
+              @blur="fullnameClear"
             />
-            <label for="male">Male</label>
+
+            <div class="bar"></div>
+            <p v-if="!errors.fullname">FullName cannot be empty</p>
           </div>
-          <div>
+          <div class="input-text">
+            <label for="age">Age</label>
             <input
-              type="radio"
-              id="female"
-              value="F"
-              v-model="user.gender"
-              @blur="genderClear"
+              type="text"
+              id="age"
+              v-model.trim="user.age"
+              @blur="ageClear"
             />
-            <label for="female">Female</label>
+
+            <div class="bar"></div>
+            <p v-if="!errors.age">Age cannot be empty</p>
           </div>
-          <p v-if="!errors.gender">Must select any one of these</p>
-        </div>
-        <p v-if="!errors.formIsValid">Enter proper details before submiting</p>
-        <button>Get Started</button>
-      </form>
+          <div class="input-text">
+            <Label>Gender</Label>
+            <div class="radio">
+              <label for="male">Male </label>
+              <input
+                type="radio"
+                id="male"
+                value="M"
+                v-model="user.gender"
+                @blur="genderClear"
+              />
+            </div>
+            <div class="radio">
+              <label for="female">Female</label>
+              <input
+                type="radio"
+                id="female"
+                value="F"
+                v-model="user.gender"
+                @blur="genderClear"
+              />
+            </div>
+            <p v-if="!errors.gender">Must select any one of these</p>
+          </div>
+          <p v-if="!errors.formIsValid">
+            Enter proper details before submiting
+          </p>
+          <button class="button-82-pushable" role="button">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text"> Get Started </span>
+          </button>
+        </form>
+      </div>
     </div>
   </section>
 </template>
 <script setup>
 import { reactive } from "vue";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const store = useStore();
 const user = reactive({
   fullname: "",
@@ -91,10 +105,11 @@ const validateForm = function () {
     errors.formIsValid = false;
   }
 };
-const submitForm = function () {
+const submitForm = async function () {
   validateForm();
   if (errors.formIsValid === true) {
-    store.dispatch("patient/addPatient", user);
+    await store.dispatch("patient/addPatient", user);
+    router.push("/home");
   }
 };
 </script>
@@ -110,7 +125,7 @@ section {
   width: 100%;
   height: 500px;
   border-radius: 50px;
-  background: #e0e0e0;
+  background: #ffffff;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
   display: flex;
   justify-content: center;
@@ -120,62 +135,132 @@ section {
   background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
   animation: rotBGimg 3.5s linear infinite;
 } */
+.main-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  height: 80%;
+}
 
+/* Form styles */
+.form-submission {
+  max-width: 400px;
+}
+
+.input-text,
 .form-control {
-  margin: 0.5rem 0;
+  margin-bottom: 20px;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-input[type="checkbox"] + label {
-  font-weight: normal;
-  display: inline;
-  margin: 0 0 0 0.5rem;
-}
-
-input,
-textarea {
+.input-text input,
+.form-control input,
+.form-control label {
   display: block;
   width: 100%;
-  border: 1px solid #ccc;
-  font: inherit;
 }
 
-input:focus,
-textarea:focus {
-  background-color: #f0e6fd;
-  outline: none;
-  border-color: #3d008d;
-}
-
-input[type="checkbox"] {
-  display: inline;
-  width: auto;
+.input-text input,
+.form-control input {
   border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  font-size: 16px;
+  margin-top: 5px;
 }
 
-input[type="checkbox"]:focus {
-  outline: #3d008d solid 1px;
+.input-text input:focus,
+.form-control input:focus {
+  outline: none;
+  border-bottom-color: #007bff;
 }
 
-h3 {
-  margin: 0.5rem 0;
-  font-size: 1rem;
+.input-text label,
+.form-control label {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.invalid label {
-  color: red;
+.bar {
+  position: relative;
+  height: 2px;
+  background-color: #333;
 }
 
-.invalid input,
-.invalid textarea {
-  border: 1px solid red;
-}
+/* Error message styles */
 p {
   color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Button styles */
+.button-82-pushable {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.button-82-shadow,
+.button-82-edge,
+.button-82-front {
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.button-82-pushable:hover .button-82-shadow {
+  transform: translateY(-50%);
+}
+
+.button-82-pushable:hover .button-82-front {
+  transform: translateY(50%);
+}
+
+.button-82-pushable:hover .button-82-edge {
+  transform: scaleX(1.2);
+}
+
+.button-82-shadow,
+.button-82-edge,
+.button-82-front {
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.button-82-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0056b3;
+  z-index: -1;
+}
+
+.button-82-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #0056b3;
+  z-index: -1;
+}
+
+.button-82-front {
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+.radio {
+  display: flex;
 }
 </style>

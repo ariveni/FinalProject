@@ -1,7 +1,7 @@
 <template>
-  <div class="index-style">
+  <div :class="logostyle">
     <img
-      class="logo"
+      :class="imgstyle"
       src="../assets/Logo.png"
       alt="Digital Health Care System"
     />
@@ -11,14 +11,10 @@
 import { defineProps } from "vue";
 defineProps({
   logostyle: String,
+  imgstyle: String,
 });
 </script>
 <style scoped>
-.index-style {
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-  background-color: #fe676e;
-}
 .home {
   width: 50px;
   height: 80px;
@@ -29,5 +25,7 @@ defineProps({
 .logo {
   width: 200px;
   height: 100px;
+  position: relative;
+  left: 100%;
 }
 </style>

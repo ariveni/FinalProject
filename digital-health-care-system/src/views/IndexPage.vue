@@ -11,6 +11,10 @@
 <script setup>
 import LogoImage from "../components/LogoImage.vue";
 import DetailsForm from "./DetailsForm.vue";
+import { onBeforeMount } from "vue";
+onBeforeMount(() => {
+  //window.location.reload();
+});
 </script>
 <style scoped>
 /* Main container */
