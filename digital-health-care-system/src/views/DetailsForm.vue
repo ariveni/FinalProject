@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="main-container">
+    <div class="card">
       <form @submit.prevent="submitForm">
         <div class="form-control" :class="{ invalid: !errors.fullname }">
           <label for="fullname">FullName</label>
@@ -102,16 +102,25 @@ const submitForm = function () {
 section {
   width: 70%;
   height: 70%;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.main-container {
-  width: 80%;
-  height: 70%;
+.card {
+  width: 100%;
+  height: 500px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+/* .card:hover:before {
+  background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
+  animation: rotBGimg 3.5s linear infinite;
+} */
+
 .form-control {
   margin: 0.5rem 0;
 }

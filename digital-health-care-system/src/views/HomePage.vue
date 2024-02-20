@@ -5,6 +5,10 @@
     </div>
     <div class="main-body">
       <div class="leftPart">
+        <div class="subtitle">
+          <div><h1>Symptom Categories</h1></div>
+        </div>
+
         <div class="home-body" v-for="loc in locations" :key="loc">
           <SymptomRegion
             :region="loc"
@@ -14,9 +18,19 @@
         </div>
       </div>
       <div class="middlePart">
-        <ActualSymptomsVue :symptomLoc="active" @add-symptom="pushSymptom" />
+        <div class="subtitle">
+          <div><h1>Symptoms</h1></div>
+        </div>
+        <ActualSymptomsVue
+          :symptomLoc="active"
+          @add-symptom="pushSymptom"
+          @remove-symptom="deleteSymptom"
+        />
       </div>
       <div class="rightPart">
+        <div class="subtitle">
+          <div><h1>Choosen</h1></div>
+        </div>
         <div class="home-body" v-for="sym in selectedSymptoms" :key="sym">
           <OptedSymptom :symptom="sym" />
         </div>
@@ -38,9 +52,13 @@ const locations = ref([]);
 const active = ref("Brain/Nervous System");
 const selectedSymptoms = ref([]);
 
-const pushSymptom = function (data) {
+const pushSymptom = async function (data) {
   selectedSymptoms.value.push(data);
-  console.log(selectedSymptoms.value);
+};
+const deleteSymptom = function (index) {
+  selectedSymptoms.value = selectedSymptoms.value.filter(
+    (id) => id.name != index
+  );
 };
 const selectedRegion = function (data) {
   active.value = data;
@@ -74,12 +92,18 @@ onMounted(async () => {
   width: 60%;
   margin: 0 10px; /* Adjust margin as needed */
   position: sticky;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .rightPart {
   width: 20%;
   margin-left: 10px; /* Adjust margin as needed */
+}
+.subtitle {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

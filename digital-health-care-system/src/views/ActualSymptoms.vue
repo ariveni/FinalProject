@@ -5,7 +5,12 @@
     </div>
     <div class="sym-container" v-else>
       <div class="sym-item" v-for="symptom in symptoms" :key="symptom">
-        <OrganSymptom :organName="symptom" @add-symptom="pushSymptom" />
+        <OrganSymptom
+          :organName="symptom"
+          @add-symptom="pushSymptom"
+          @remove-symptom="deleteSymptom"
+          :location="props.symptomLoc"
+        />
       </div>
     </div>
   </div>
@@ -18,12 +23,15 @@ import BaseSpinner from "../components/BaseSpinner.vue";
 const props = defineProps({
   symptomLoc: String,
 });
-const emit = defineEmits(["addSymptom"]);
+const emit = defineEmits(["addSymptom", "removeSymptom"]);
 const store = useStore();
 const symptoms = ref([]);
 const loading = ref(false);
 const pushSymptom = function (data) {
   emit("addSymptom", data);
+};
+const deleteSymptom = function (data) {
+  emit("removeSymptom", data);
 };
 const fetchSymptoms = async () => {
   loading.value = true;

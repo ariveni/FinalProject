@@ -5,73 +5,222 @@ export default {
       symptomsCategory: [
         {
           category:'Brain/Nervous System',
-          symptoms:['Anxiety', 'Mood Swings', 'Altered Sensorium', 'Depression', 'Irritability', 'Slurred Speech', 'Visual Disturbances', 'Lack Of Concentration']
+          symptoms:[{name:"Anxiety",status:false},
+          {name:"Mood Swings",status:false},
+          {name:"Altered Sensorium",status:false},
+          {name:"Depression",status:false},
+          {name:"Irritability",status:false},
+          {name:"Slurred Speech",status:false},
+          {name:"Visual Disturbances",status:false},
+          {name:"Lack Of Concentration",status:false}
+          ]
 
         },
         {
           category:'Circulatory System',
-          symptoms:['Cold Hands And Feet', 'Acute Liver Failure', 'Swollen Blood Vessels', 'Prominent Veins On Calf', 'Fluid Overload ', 'Receiving Blood Transfusion']
+          symptoms:[
+            {name:"Cold Hands And Feet",status:false},
+            {name:"Acute Liver Failure",status:false},
+            {name:"Swollen Blood Vessels",status:false},
+            {name:"Prominent Veins On Calf",status:false},
+            {name:"Fluid Overload",status:false},
+            {name:"Receiving Blood Transfusion",status:false}
+          ]
 
         },
         {
           category:'Head',
-          symptoms:['Headache', 'Dizziness', 'Sinus Pressure']
+          symptoms:[
+            {name:"Headache",status:false},
+            {name:"Dizziness",status:false},
+            {name:"Sinus Pressure",status:false}
+          ]
 
         },
         {
           category:'Neck',
-          symptoms:['Neck Pain', 'Stiff Neck']
+          symptoms:[
+            {name:"Neck Pain",status:false},
+            {name:"Stiff Neck",status:false}
+          ]
 
         },
         {
           category:'Eyes',
-          symptoms:['Redness Of Eyes', 'Blurred And Distorted Vision', 'Watering From Eyes', 'Pain Behind The Eyes', 'Yellowing Of Eyes', 'Sunken Eyes']
+          symptoms:[
+            {name:"Redness Of Eyes",status:false},
+            {name:"Blurred And Distorted Vision",status:false},
+            {name:"Watering From Eyes",status:false},
+            {name:"Pain Behind The Eyes",status:false},
+            {name:"Yellowing Of Eyes",status:false},
+            {name:"Sunken Eyes",status:false}
+          ]
         },
         {
           category:'Respiratory Systemyes',
-          symptoms:['Continuous Sneezing', 'Runny Nose', 'Congestion', 'Cough', 'Breathlessness', 'Phlegm', 'Chest Pain']
+          symptoms:[
+            {name:"Continuous Sneezing",status:false},
+            {name:"Runny Nose",status:false},
+            {name:"Congestion",status:false},
+            {name:"Cough",status:false},
+            {name:"Breathlessness",status:false},
+            {name:"Phlegm",status:false},
+            {name:"Chest Pain",status:false}
+          ]
+          
         },
         {
           category:'Skin',
-          symptoms:['Itching', 'Skin Rash', 'Nodal Skin Eruptions', 'Yellowish Skin', 'Red Spots Over Body', 'Skin Peeling', 'Silver Like Dusting', 'Blister', 'Red Sore Around Nose', 'Yellow Crust Ooze', 'Pus Filled Pimples', 'Blackheads', 'Bruising', 'Puffy Face And Eyes', 'Brittle Nails', 'Dischromic Patches']
+          symptoms:[
+            {name:"Itching",status:false},
+            {name:"Skin Rash",status:false},
+            {name:"Nodal Skin Eruptions",status:false},
+            {name:"Yellowish Skin",status:false},
+            {name:"Red Spots Over Body",status:false},
+            {name:"Skin Peeling",status:false},
+            {name:"Silver Like Dusting",status:false},
+            {name:"Blister",status:false},
+            {name:"Red Sore Around Nose",status:false},
+            {name:"Yellow Crust Ooze",status:false},
+            {name:"Pus Filled Pimples",status:false},
+            {name:"Blackheads",status:false},
+            {name:"Bruising",status:false},
+            {name:"Puffy Face And Eyes",status:false},
+            {name:"Brittle Nails",status:false},
+            {name:"Dischromic Patches",status:false}
+          ]
 
         },
         {
           category:'Heart',
-          symptoms:['Fast Heart Rate', 'Palpitations']
+          symptoms:[
+            {name:"Fast Heart Rate",status:false},
+            {name:"Palpitations",status:false}
+          ]
+          
         },
         {
           category:'Muscular',
-          symptoms:['Joint Pain', 'Muscle Wasting', 'Muscle Weakness', 'Muscle Pain', 'Cramps', 'Swelled Lymph Nodes', 'Knee Pain', 'Hip Joint Pain', 'Movement Stiffness', 'Swollen Extremities']
+          symptoms:[
+            {name:"Joint Pain",status:false},
+            {name:"Muscle Wasting",status:false},
+            {name:"Muscle Weakness",status:false},
+            {name:"Muscle Pain",status:false},
+            {name:"Cramps",status:false},
+            {name:"Swelled Lymph Nodes",status:false},
+            {name:"Knee Pain",status:false},
+            {name:"Hip Joint Pain",status:false},
+            {name:"Movement Stiffness",status:false},
+            {name:"Swollen Extremities",status:false}
+          ]
         },
         {
           category:'Stomach',
-          symptoms:['Joint Pain', 'Muscle Wasting', 'Muscle Weakness', 'Muscle Pain', 'Cramps', 'Swelled Lymph Nodes', 'Knee Pain', 'Hip Joint Pain', 'Movement Stiffness', 'Swollen Extremities']
+          symptoms:[
+            {"name":"Stomach Pain","status":false},
+            {"name":"Acidity","status":false},
+            {"name":"Vomiting","status":false},
+            {"name":"Burning Micturition","status":false},
+            {"name":"Indigestion","status":false},
+            {"name":"Abdominal Pain","status":false},
+            {"name":"Constipation","status":false},
+            {"name":"Diarrhea","status":false},
+            {"name":"Stomach Bleeding","status":false},
+            {"name":"Distention Of Abdomen","status":false}
+        ]        
         },
         {
           category:'Endocrine System',
-          symptoms:['Irregular Sugar Level', 'Enlarged Thyroid', 'Obesity']
+          symptoms:[
+            {name:"Irregular Sugar Level",status:false},
+            {name:"Enlarged Thyroid",status:false},
+            {name:"Obesity",status:false}
+          ]
+          
         },
         {
           category:'Digestive System',
-          symptoms:['Nausea', 'Back Pain', 'Swelling Of Stomach', 'Pain During Bowel Movements', 'Pain In Anal Region', 'Bloody Stool', 'Irritation In Anus', 'Passage Of Gases', 'Belly Pain', 'Increased Appetite', 'Mucoid Sputum', 'Rusty Sputum', 'Blood In Sputum', 'Scurring', 'Small Dents In Nails', 'Inflammatory Nails']
-
+          symptoms:[
+            {name:"Nausea",status:false},
+            {name:"Back Pain",status:false},
+            {name:"Swelling Of Stomach",status:false},
+            {name:"Pain During Bowel Movements",status:false},
+            {name:"Pain In Anal Region",status:false},
+            {name:"Bloody Stool",status:false},
+            {name:"Irritation In Anus",status:false},
+            {name:"Passage Of Gases",status:false},
+            {name:"Belly Pain",status:false},
+            {name:"Increased Appetite",status:false},
+            {name:"Mucoid Sputum",status:false},
+            {name:"Rusty Sputum",status:false},
+            {name:"Blood In Sputum",status:false},
+            {name:"Scurring",status:false},
+            {name:"Small Dents In Nails",status:false},
+            {name:"Inflammatory Nails",status:false}
+          ]          
         },
         {
           category:'Reproductive System',
-          symptoms:['Abnormal Menstruation', 'Extra Marital Contacts']
+          symptoms:[
+            {name:"Abnormal Menstruation",status:false},
+            {name:"Extra Marital Contacts",status:false}
+          ]
+          
         },
         {
           category:'Urine',
-          symptoms:['Spotting Urination', 'Yellow Urine', 'Foul Smell Of Urine', 'Continuous Feel Of Urine', 'Bladder Discomfort', 'Dark Urine', 'Polyuria', 'Passage Of Gases']
+          symptoms:[
+            {name:"Spotting Urination",status:false},
+            {name:"Yellow Urine",status:false},
+            {name:"Foul Smell Of Urine",status:false},
+            {name:"Continuous Feel Of Urine",status:false},
+            {name:"Bladder Discomfort",status:false},
+            {name:"Dark Urine",status:false},
+            {name:"Polyuria",status:false},
+            {name:"Passage Of Gases",status:false}
+          ]
+          
         },
         {
           category:'Legs',
-          symptoms:['Swollen Legs', 'Painful Walking', 'Swelling Of Joints']
+          symptoms:[
+            {name:"Swollen Legs",status:false},
+            {name:"Painful Walking",status:false},
+            {name:"Swelling Of Joints",status:false}
+          ]
+          
         },
         {
           category:'Whole Body',
-          symptoms:['Chills', 'Shivering', 'Fatigue', 'Weight Gain', 'Weight Loss', 'Restlessness', 'Lethargy', 'High Fever', 'Sweating', 'Dehydration', 'Mild Fever','High Fever', 'Malaise', 'Weakness In Limbs', 'Unsteadiness', 'Weakness Of One Body Side', 'Loss Of Smell', 'Toxic Look (Typhos)', 'Coma', 'Excessive Hunger', 'Loss Of Balance', 'Spinning Movements', 'Internal Itching', 'Family History', 'Receiving Unsterile Injections', 'History Of Alcohol Consumption']
+          symptoms:[
+            {name:"Chills",status:false},
+            {name:"Shivering",status:false},
+            {name:"Fatigue",status:false},
+            {name:"Weight Gain",status:false},
+            {name:"Weight Loss",status:false},
+            {name:"Restlessness",status:false},
+            {name:"Lethargy",status:false},
+            {name:"High Fever",status:false},
+            {name:"Sweating",status:false},
+            {name:"Dehydration",status:false},
+            {name:"Mild Fever",status:false},
+            {name:"High Fever",status:false},
+            {name:"Malaise",status:false},
+            {name:"Weakness In Limbs",status:false},
+            {name:"Unsteadiness",status:false},
+            {name:"Weakness Of One Body Side",status:false},
+            {name:"Loss Of Smell",status:false},
+            {name:"Toxic Look (Typhos)",status:false},
+            {name:"Coma",status:false},
+            {name:"Excessive Hunger",status:false},
+            {name:"Loss Of Balance",status:false},
+            {name:"Spinning Movements",status:false},
+            {name:"Internal Itching",status:false},
+            {name:"Family History",status:false},
+            {name:"Receiving Unsterile Injections",status:false},
+            {name:"History Of Alcohol Consumption",status:false}
+        ]
+        
 
         }
       ],
@@ -83,13 +232,47 @@ export default {
     {
       console.log(data);
       state.location = data;
+    },
+    changeStatus(state, payload) {
+      console.log(payload);
+      
+      // const category = state.symptomsCategory.find(loc => loc.category === payload.category);
+      
+      // if (category) {
+      //   const symptom = category.symptoms.find(sym => sym.name === payload.symptom);
+        
+      //   if (symptom) {
+      //     symptom.status = !symptom.status;
+      //     console.loc('hellllo')
+      //     console.log(symptom.status);
+      //   }
+        
+      // }
+      for(const loc of  state.symptomsCategory){
+        if(loc.category == payload.category){
+          for(const sym of loc.symptoms){
+            if(sym.name == payload.symptom)
+            {
+              sym.status= !sym.status;
+              console.log("hello all");
+            console.log(sym);
+            }
+            
+          }
+        }
+      }
     }
+
   },
   actions:{
     addLocation(context, data)
     {
       console.log("addLocation Action");
       context.commit('addLocation', data);
+    },
+    changeStatus(context, payload){
+      console.log("changeStatus Action");
+      context.commit('changeStatus', payload);
     }
   },
   getters:{
