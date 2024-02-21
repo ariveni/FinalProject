@@ -13,6 +13,23 @@ export default {
     }
   },
   mutations:{
+    async getDisease(state)
+    {
+      await fetch('http://127.0.0.1:8000/api/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(state.patient.symptoms),
+      }).then(response=>{
+        if(response.ok){
+          return response.json();
+        }
+      }).then((data)=>{
+        state.patient.disease = data;
+      });
+      console.log(state.patient.disease);
+    },
     empty(state){
       state.patient.disease = '';
       state.patient.symptoms = [];
@@ -49,6 +66,11 @@ export default {
     }
   },
   actions:{
+    getDisease(context)
+    {
+      
+      context.commit('getDisease');
+    },
     empty(context)
     {
       context.commit('empty')

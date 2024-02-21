@@ -34,6 +34,9 @@
         <div class="home-body" v-for="sym in selectedSymptoms" :key="sym">
           <OptedSymptom :symptom="sym" />
         </div>
+        <div class="btn">
+          <DiagnosisButton />
+        </div>
       </div>
     </div>
   </div>
@@ -44,6 +47,7 @@ import NavBar from "../components/NavBar.vue";
 import SymptomRegion from "./SymptomRegion.vue";
 import ActualSymptomsVue from "./ActualSymptoms.vue";
 import OptedSymptom from "./OptedSymptoms.vue";
+import DiagnosisButton from "@/components/DiagnosisButton.vue";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 
@@ -107,6 +111,11 @@ onMounted(async () => {
 .subtitle {
   width: 100%;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
   display: flex;
   justify-content: center;
   align-items: center;

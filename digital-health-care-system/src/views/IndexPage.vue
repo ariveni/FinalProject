@@ -1,4 +1,4 @@
-<template>
+<template >
   <div class="main-container">
     <div class="logo-container">
       <LogoImage logostyle="index-style" />
