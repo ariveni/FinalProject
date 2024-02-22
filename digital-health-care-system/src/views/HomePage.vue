@@ -5,22 +5,24 @@
     </div>
     <div class="main-body">
       <div class="leftPart">
-        <div class="subtitle">
-          <div><h1>Symptom Categories</h1></div>
-        </div>
+        <ul class="menu bg-base-200 w-56 rounded-box">
+          <li>
+            <h1 class="menu-title">Symptom Categories</h1>
+            <ul>
+              <li v-for="loc in locations" :key="loc">
+                <SymptomRegion
+                  :region="loc"
+                  :opted="active"
+                  @activate-location="selectedRegion"
+                />
+              </li>
+            </ul>
+          </li>
+        </ul>
 
-        <div class="home-body" v-for="loc in locations" :key="loc">
-          <SymptomRegion
-            :region="loc"
-            :opted="active"
-            @activate-location="selectedRegion"
-          />
-        </div>
+        <div class="home-body" v-for="loc in locations" :key="loc"></div>
       </div>
       <div class="middlePart">
-        <div class="subtitle">
-          <div><h1>Symptoms</h1></div>
-        </div>
         <ActualSymptomsVue
           :symptomLoc="active"
           @add-symptom="pushSymptom"
@@ -34,7 +36,7 @@
         <div class="home-body" v-for="sym in selectedSymptoms" :key="sym">
           <OptedSymptom :symptom="sym" />
         </div>
-        <div class="btn">
+        <div v-if="count > 0" class="btn">
           <DiagnosisButton />
         </div>
       </div>
@@ -50,16 +52,19 @@ import OptedSymptom from "./OptedSymptoms.vue";
 import DiagnosisButton from "@/components/DiagnosisButton.vue";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
-
+import { useRouter } from "vue-router";
+const router = useRouter();
 const store = useStore();
 const locations = ref([]);
 const active = ref("Brain/Nervous System");
 const selectedSymptoms = ref([]);
+const count = ref(0);
 
 const pushSymptom = async function (data) {
   console.log(data.name);
   await store.dispatch("patient/addSymptom", data.name);
   selectedSymptoms.value = await store.getters["patient/symptoms"];
+  count.value += 1;
 };
 const deleteSymptom = async function (index) {
   selectedSymptoms.value = selectedSymptoms.value.filter(
@@ -67,6 +72,7 @@ const deleteSymptom = async function (index) {
   );
   await store.dispatch("patient/dropSymptom", index);
   selectedSymptoms.value = await store.getters["patient/symptoms"];
+  count.value -= 1;
 };
 const selectedRegion = function (data) {
   active.value = data;
@@ -74,6 +80,9 @@ const selectedRegion = function (data) {
 onMounted(async () => {
   locations.value = await store.getters["symptoms/getLocations"];
   selectedSymptoms.value = await store.getters["patient/symptoms"];
+  if (locations.value.length === 0) {
+    router.push("/");
+  }
 });
 </script>
 
@@ -95,6 +104,8 @@ onMounted(async () => {
 .leftPart {
   width: 20%;
   margin-right: 10px; /* Adjust margin as needed */
+  display: flex;
+  justify-content: center;
 }
 
 .middlePart {

@@ -51,9 +51,7 @@
             </div>
             <p v-if="!errors.gender">Must select any one of these</p>
           </div>
-          <p v-if="!errors.formIsValid">
-            Enter proper details before submiting
-          </p>
+
           <button class="button-82-pushable" role="button">
             <span class="button-82-shadow"></span>
             <span class="button-82-edge"></span>

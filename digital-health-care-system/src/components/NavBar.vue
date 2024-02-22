@@ -1,28 +1,44 @@
 <template>
-  <div class="main">
-    <ul>
-      <li>
-        <div @click="goIndex">
-          <LogoImage logostyle="home" imgstyle="logo" />
+  <header class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="text-center sm:text-left" @click="goIndex">
+          <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+            Digital Health Care System
+          </h1>
+
+          <p class="mt-1.5 text-sm text-gray-500">
+            Where Technology Meets Healing !
+          </p>
         </div>
-      </li>
-      <div class="menu">
-        <li>
+
+        <div
+          class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center"
+        >
           <router-link to="/home"
-            ><button class="button-84">Home</button></router-link
-          >
-        </li>
-        <li>
-          <router-link to="/about"
-            ><button class="button-84">About</button></router-link
-          >
-        </li>
+            ><button
+              class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+              type="button"
+            >
+              Home
+            </button>
+          </router-link>
+
+          <router-link to="/about">
+            <button
+              class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+              type="button"
+            >
+              About
+            </button>
+          </router-link>
+        </div>
       </div>
-    </ul>
-  </div>
+    </div>
+  </header>
 </template>
 <script setup>
-import LogoImage from "./LogoImage.vue";
+//import LogoImage from "./LogoImage.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 

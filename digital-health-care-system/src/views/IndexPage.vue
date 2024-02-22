@@ -11,9 +11,12 @@
 <script setup>
 import LogoImage from "../components/LogoImage.vue";
 import DetailsForm from "./DetailsForm.vue";
-import { onBeforeMount } from "vue";
-onBeforeMount(() => {
-  //window.location.reload();
+import { onMounted } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+onMounted(async () => {
+  await store.dispatch("symptoms/addData");
+  await store.dispatch("patient/initializeData");
 });
 </script>
 <style scoped>

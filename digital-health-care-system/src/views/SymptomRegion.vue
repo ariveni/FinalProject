@@ -1,6 +1,6 @@
 <template>
-  <div class="region-container" :class="select" @click="selectRegion">
-    <p class="region-text">{{ props.region }}</p>
+  <div :class="select" @click="selectRegion">
+    <p>{{ props.region }}</p>
   </div>
 </template>
 <script setup>

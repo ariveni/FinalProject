@@ -13,6 +13,17 @@ export default {
     }
   },
   mutations:{
+    initializeData(state)
+    {
+      state.patient = {
+        fullname: '',
+        age: null,
+        gender: '',
+        symptoms: [],
+        disease:'',
+        prescription:[],
+      }
+    },
     async getDisease(state)
     {
       await fetch('http://127.0.0.1:8000/api/predict', {
@@ -26,26 +37,18 @@ export default {
           return response.json();
         }
       }).then((data)=>{
-        state.patient.disease = data;
+        console.log('add disease',data.disease);
+        console.log('add disease',data.prescription);
+        state.patient.disease=data.disease;
+        state.patient.prescription = data.prescription;
       });
       console.log(state.patient.disease);
-    },
-    empty(state){
-      state.patient.disease = '';
-      state.patient.symptoms = [];
-      state.patient.prescription = [];
     },
     addPatient(state, data){
       console.log('add patient',data);
       state.patient.fullname = data.fullname;
       state.patient.age = data.age;
       state.patient.gender = data.gender;
-      console.log(state.patient);
-    },
-    setDisease(state,data)
-    {
-      console.log('add disease',data);
-      state.patient.disease=data;
       console.log(state.patient);
     },
     setPrescription(state,data)
@@ -66,14 +69,14 @@ export default {
     }
   },
   actions:{
+    initializeData(context)
+    {
+      context.commit('initializeData');
+    },
     getDisease(context)
     {
       
       context.commit('getDisease');
-    },
-    empty(context)
-    {
-      context.commit('empty')
     },
     async addPatient(context, data)
     {

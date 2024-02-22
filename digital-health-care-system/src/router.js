@@ -6,10 +6,10 @@ import DiseasePage from './views/DiseasePage.vue'
 const router = createRouter({
   history:createWebHistory(),
   routes:[
-      {path:'/', component:IndexPage},
-      {path:'/home', component:HomePage},
-      {path:'/about', component:AboutPage},
-      {path:'/disease', component:DiseasePage}
+      {path:'/', component:IndexPage, alias: '/'},
+      {path:'/home', component:HomePage, alias: '/'},
+      {path:'/about', component:AboutPage,alias: '/'},
+      {path:'/disease', component:DiseasePage,alias: '/'}
       ]
 });
 

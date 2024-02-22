@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="symptom-container"
-    :class="props.organName.status ? 'selected' : ''"
-  >
+  <div>
     <button class="btn" v-if="!props.organName.status" @click="SelectSymptom">
       <i class="animation"></i>
       <p>{{ props.organName.name }}</p>
@@ -46,26 +43,6 @@ const DropSymptom = async function () {
 };
 </script>
 <style scoped>
-.symptom-container {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 15px;
-  height: 100px;
-  width: 200px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
-    0px 30px 60px -30px rgba(0, 0, 0, 0.3),
-    inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
-}
-.symptom-text {
-  color: #333;
-  font-weight: bold;
-  font-size: 18px;
-}
 .cancel {
   width: 50px;
 }
@@ -79,8 +56,9 @@ const DropSymptom = async function () {
   align-items: center;
   justify-content: space-between;
   background: #40b3a2;
-  min-width: 200px;
+  min-width: 100%;
   max-width: 100%;
+  height: 50%;
   border: 0;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

@@ -2,7 +2,14 @@ export default {
   namespaced: true,
   state() {
     return {
-      symptomsCategory: [
+      symptomsCategory: [],
+      location : ''
+    }
+  },
+  mutations:{
+    addData(state)
+    {
+      state.symptomsCategory = [
         {
           category:'Brain/Nervous System',
           symptoms:[{name:"Anxiety",status:false},
@@ -223,11 +230,9 @@ export default {
         
 
         }
-      ],
-      location : ''
-    }
-  },
-  mutations:{
+      ];
+      console.log("Mutation to addData");
+    },
     addLocation(state,data)
     {
       console.log(data);
@@ -265,6 +270,11 @@ export default {
 
   },
   actions:{
+    addData(context)
+    {
+      console.log("Action to addData");
+      context.commit('addData');
+    },
     addLocation(context, data)
     {
       console.log("addLocation Action");
