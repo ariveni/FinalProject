@@ -80,6 +80,7 @@ const selectedRegion = function (data) {
 onMounted(async () => {
   locations.value = await store.getters["symptoms/getLocations"];
   selectedSymptoms.value = await store.getters["patient/symptoms"];
+  count.value = selectedSymptoms.value.length;
   if (locations.value.length === 0) {
     router.push("/");
   }

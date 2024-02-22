@@ -18,7 +18,7 @@
           <div class="input-text">
             <label for="age">Age</label>
             <input
-              type="text"
+              type="number"
               id="age"
               v-model.trim="user.age"
               @blur="ageClear"
