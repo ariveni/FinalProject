@@ -20,7 +20,7 @@
             <input
               type="number"
               id="age"
-              v-model.trim="user.age"
+              v-model="user.age"
               @blur="ageClear"
             />
 

@@ -47,6 +47,9 @@ const goIndex = async function () {
 };
 </script>
 <style scoped>
+h1 {
+  text-shadow: 0px 0px 4px #59981a, 0px 0px 8px #59981a, 0px 0px 12px #59981a;
+}
 .main {
   width: 100vw;
   background-color: #fff;

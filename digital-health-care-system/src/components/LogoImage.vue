@@ -28,4 +28,8 @@ defineProps({
   position: relative;
   left: 100%;
 }
+img {
+  filter: drop-shadow(10px 7px 10px #59981a);
+  object-fit: cover;
+}
 </style>
