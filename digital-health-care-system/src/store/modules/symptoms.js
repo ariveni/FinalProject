@@ -30,7 +30,6 @@ export default {
             {name:"Acute Liver Failure",status:false},
             {name:"Swollen Blood Vessels",status:false},
             {name:"Prominent Veins On Calf",status:false},
-            {name:"Fluid Overload",status:false},
             {name:"Receiving Blood Transfusion",status:false}
           ]
 
@@ -64,7 +63,7 @@ export default {
           ]
         },
         {
-          category:'Respiratory Systemyes',
+          category:'Respiratory System',
           symptoms:[
             {name:"Continuous Sneezing",status:false},
             {name:"Runny Nose",status:false},
@@ -293,7 +292,9 @@ export default {
       for(const loc of state.symptomsCategory )
       {
         symploc.push(loc.category);
+        console.log(loc.category);
       }
+      console.log("symploc")
       console.log(symploc);
       return symploc;
     },

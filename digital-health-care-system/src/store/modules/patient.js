@@ -26,23 +26,46 @@ export default {
     },
     async getDisease(state)
     {
-      await fetch('http://127.0.0.1:8000/api/predict', {
+      const sympt =[]
+      for( const symptom of state.patient.symptoms)
+      {
+        sympt.push(symptom.name);
+      }
+      try{
+        const response = await fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(state.patient.symptoms),
-      }).then(response=>{
-        if(response.ok){
-          return response.json();
-        }
-      }).then((data)=>{
-        console.log('add disease',data.disease);
-        console.log('add disease',data.prescription);
-        state.patient.disease=data.disease;
-        state.patient.prescription = data.prescription;
+        body: JSON.stringify({
+          "symptoms": sympt
+        }),
       });
-      console.log(state.patient.disease);
+      if(!response.ok){
+        throw new Error('Failed to Fetch data');
+      }
+      const data = await response.json();
+      state.patient.disease = data.disease;
+      state.patient.prescription = data.prescription;
+      }
+      catch(error)
+      {
+        console.error('Error fetching data:', error);
+      }
+        
+      
+        
+        
+        
+        
+        // console.log('add disease',data.prescription);
+        // state.patient.disease=data.disease;
+        // state.patient.prescription = data.prescription;
+      
+      console.log("Store");
+      console.log(new Date());
+      console.log(state.patient);
+      
     },
     addPatient(state, data){
       console.log('add patient',data);
@@ -64,7 +87,7 @@ export default {
     },
     dropSymptom(state,data)
     {
-      state.patient.symptoms = state.patient.symptoms.filter((item)=> item != data);
+      state.patient.symptoms = state.patient.symptoms.filter((item)=> item.name != data);
       console.log("droped symptom");
     }
   },
@@ -73,7 +96,7 @@ export default {
     {
       context.commit('initializeData');
     },
-    getDisease(context)
+    async getDisease(context)
     {
       
       context.commit('getDisease');
