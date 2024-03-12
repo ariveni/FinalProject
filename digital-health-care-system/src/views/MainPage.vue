@@ -43,25 +43,15 @@ const pushSymptom = async function (data) {
   await store.dispatch('patient/addSymptom', payload)
 
   selectedSymptoms.value = await store.getters['patient/symptoms']
-  count.value += 1
+  count.value = selectedSymptoms.value.length
 }
 const deleteSymptom = async function (index) {
   selectedSymptoms.value = selectedSymptoms.value.filter((id) => id.name != index.name)
   await store.dispatch('patient/dropSymptom', index.name)
   selectedSymptoms.value = await store.getters['patient/symptoms']
-  count.value -= 1
+  count.value = selectedSymptoms.value.length
 }
-const clearSymptom = async (data) => {
-  const payload = reactive({
-    category: data.category,
-    symptom: data.name
-  })
-  await store.dispatch('symptoms/changeStatus', payload)
-  selectedSymptoms.value = selectedSymptoms.value.filter((id) => id.name != data.name)
-  await store.dispatch('patient/dropSymptom', data.name)
-  selectedSymptoms.value = await store.getters['patient/symptoms']
-  count.value -= 1
-}
+
 const selectedRegion = function (data) {
   active.value = data
 }

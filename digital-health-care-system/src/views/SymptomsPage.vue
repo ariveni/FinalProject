@@ -105,10 +105,10 @@ const addSymptom = async (data) => {
     category: props.location,
     symptom: data.name
   })
-  setTimeout(async () => {
-    await store.dispatch('symptoms/changeStatus', payload)
-    emit('addSymptom', data)
-  }, 2000)
+
+  await store.dispatch('symptoms/changeStatus', payload)
+  emit('addSymptom', data)
+
   toast(data.name + ' Added Successfully', {
     type: 'success',
     autoClose: 1000,
@@ -120,10 +120,10 @@ const removeSymptom = async (data) => {
     category: props.location,
     symptom: data.name
   })
-  setTimeout(async () => {
-    await store.dispatch('symptoms/changeStatus', payload)
-    emit('removeSymptom', data)
-  }, 2000)
+
+  await store.dispatch('symptoms/changeStatus', payload)
+  emit('removeSymptom', data)
+
   toast(data.name + ' removed Successfully', {
     type: 'error',
     autoClose: 1000,
