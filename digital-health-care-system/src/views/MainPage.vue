@@ -3,16 +3,17 @@
     <main class="space-y-10 mb-40 flex">
       <SymptomCategory :locations="locations" :opted="active" @activate-location="selectedRegion" />
       <SymptomsPage :location="active" @add-symptom="pushSymptom" @remove-symptom="deleteSymptom" />
-      <SelectedSymptoms
+      <!-- <SelectedSymptoms
         v-if="count > 0"
         :symptoms="selectedSymptoms"
         @remove-symptom="clearSymptom"
-      />
+      /> -->
       <!-- <div class="relative h-32 w-32 ...">
         <div class="absolute inset-y-0 right-0 w-16 ...">
           <SymptomCheck removesymptom />
         </div>
       </div> -->
+      <CartPage :symptomcount="count" />
     </main>
   </AppLayout>
 </template>
@@ -21,7 +22,8 @@
 import AppLayout from '../layouts/AppLayout.vue'
 import SymptomCategory from './SymptomCategory.vue'
 import SymptomsPage from './SymptomsPage.vue'
-import SelectedSymptoms from './SelectedSymptoms.vue'
+//import SelectedSymptoms from './SelectedSymptoms.vue'
+import CartPage from './CartPage.vue'
 
 //import SymptomCheck from './/SymptomCheck.vue'
 import { reactive, ref, onMounted } from 'vue'

@@ -31,7 +31,8 @@ export default {
       {
         sympt.push(symptom.name);
       }
-      try{
+      
+        console.log("The api");
         const response = await fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
         headers: {
@@ -39,19 +40,16 @@ export default {
         },
         body: JSON.stringify({
           "symptoms": sympt
-        }),
+        })
       });
       if(!response.ok){
+        console.log("The error");
         throw new Error('Failed to Fetch data');
       }
       const data = await response.json();
       state.patient.disease = data.disease;
       state.patient.prescription = data.prescription;
-      }
-      catch(error)
-      {
-        console.error('Error fetching data:', error);
-      }
+      console.log("The Data");
         
       
         
@@ -123,6 +121,11 @@ export default {
     symptoms(state)
     {
       return state.patient.symptoms;
+    },
+    getSymptomsCount(state)
+    {
+      console.log("length"+ state.patient.symptoms.length);
+      return state.patient.symptoms.length;
     }
   }
 }

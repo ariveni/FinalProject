@@ -18,15 +18,15 @@
           >
         </div>
         <div class="flex items-center justify-end gap-3">
-          <a
+          <router-link
             class="hidden items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex"
-            href="/login"
-            >Home</a
+            to="/main"
+            >Home</router-link
           >
-          <a
+          <router-link
             class="inline-flex items-center justify-center rounded-xl bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-            href="/login"
-            >About</a
+            to="/symptomcart"
+            >Diagnosis</router-link
           >
         </div>
       </div>

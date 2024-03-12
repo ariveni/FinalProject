@@ -58,13 +58,23 @@ const fetchData = async () => {
     report.disease = data.disease
     report.prescription = data.prescription
     console.log(report.prescription)
-    loading.value = false
+    setTimeout(() => {
+      if (report.disease === '') {
+        toast('Internal Server Error!', {
+          type: 'error',
+          autoClose: 3000,
+          dangerouslyHTMLString: true
+        })
+      } else {
+        toast('Disease Predicted Successfully!', {
+          type: 'success',
+          autoClose: 2000,
+          dangerouslyHTMLString: true
+        })
+        loading.value = false
+      }
+    }, 1000)
   }, 3000)
-  toast('Disease Predicted Successfully!', {
-    type: 'success',
-    autoClose: 2000,
-    dangerouslyHTMLString: true
-  })
 
   console.log('Disease Report')
   console.log(new Date())
