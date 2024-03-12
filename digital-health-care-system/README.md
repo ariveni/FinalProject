@@ -1,4 +1,4 @@
-# job_portal_frontend
+# Digital Health Care System
 
 This template should help get you started developing with Vue 3 in Vite.
 
