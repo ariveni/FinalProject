@@ -2,8 +2,14 @@
   <section class="py-12 text-gray-100 sm:py-12 lg:py-16">
     <div class="px-4 mx-auto max-w-9xl sm:px-6 lg:px-8">
       <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
-        <h1
+        <!-- <h1
           class="text-2xl md:text-3xl pl-2 my-2 border-l-4 font-sans font-bold border-teal-400 dark:text-gray-800"
+        >
+          Symptoms
+        </h1> -->
+
+        <h1
+          class="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-teal-500 text-5xl font-black"
         >
           Symptoms
         </h1>

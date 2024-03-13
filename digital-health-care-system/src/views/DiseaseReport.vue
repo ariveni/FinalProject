@@ -24,13 +24,37 @@
           src="../assets/diagnosis.jpg"
           alt="Image Description"
         />
-        <div class="p-4 md:p-5">
-          <h2 class="text-lg font-bold text-gray-900 dark:text-white">{{ report.disease }}</h2>
 
-          <h3 class="font-bold">prescription:</h3>
-          <ol>
-            <li v-for="id in report.prescription" :key="id">{{ id }}</li>
-          </ol>
+        <div class="flex flex-col mb-8 md:mb-auto gap-3.5 flex-1 p-4">
+          <h1 class="flex gap-3 items-center m-auto text-lg font-bold md:flex-col md:gap-2">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+              ></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line></svg
+            >{{ report.disease }}
+          </h1>
+          <ul class="flex flex-col gap-3.5 w-full sm:max-w-md m-auto">
+            <li
+              class="w-full bg-gray-100 p-3 rounded-md"
+              v-for="id in report.prescription"
+              :key="id"
+            >
+              {{ id.charAt(0).toUpperCase() + id.slice(1) }}
+            </li>
+          </ul>
         </div>
       </div>
     </main>
@@ -54,7 +78,7 @@ const fetchData = async () => {
   for (const symptom of store.getters['patient/symptoms']) {
     sympt.push(symptom.name)
   }
-  console.log('symp' + sympt)
+  console.log('symp..........' + sympt)
   const res = await fetch('http://127.0.0.1:5000/predict', {
     method: 'POST',
     headers: {
@@ -65,9 +89,12 @@ const fetchData = async () => {
     })
   })
   if (res.ok) {
-    const data = res.json()
+    const data = await res.json()
+    console.log(data.disease + 'api data')
     report.disease = data.disease
     report.prescription = data.prescription
+  } else {
+    console.log(' no api data')
   }
   setTimeout(() => {
     if (report.disease === '') {

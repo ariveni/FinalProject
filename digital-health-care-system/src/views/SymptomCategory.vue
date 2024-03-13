@@ -28,12 +28,17 @@
         </svg>
         <!-- Sidebar content -->
         <div class="z-10 flex flex-col flex-1">
-          <div class="flex items-center justify-between flex-shrink-0 w-64 p-4">
+          <div class="flex items-center justify-between flex-shrink-0 w-64 p-2">
             <!-- Logo -->
             <div>
-              <h1 class="text-3xl font-extrabold sm:text-2xl">
-                <strong class="block font-extrabold text-green-700"> Symptom Categories </strong>
+              <h1
+                class="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-teal-500 text-2xl font-black"
+              >
+                Symptom Categories
               </h1>
+              <!-- <h1 class="text-2xl font-extrabold sm:text-1xl">
+                <strong class="block font-extrabold text-green-700">  </strong>
+              </h1> -->
             </div>
             <!-- Close btn -->
             <button
@@ -79,7 +84,7 @@
                   d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 />
               </svg> -->
-              <img :src="getIcon(loc)" alt="" class="w-6 h-6" aria-hidden="true" />
+              <!-- <img :src="getIcon(loc)" alt="" class="w-6 h-6" aria-hidden="true" /> -->
               <span :class="selectedLocation(loc)">{{ loc }}</span>
             </div>
           </nav>

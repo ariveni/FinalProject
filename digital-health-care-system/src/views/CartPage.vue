@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h3>{{ props.symptomcount }}</h3>
-    <img src="../assets/container.png" alt="" class="h-20 w-20" />
+  <div class="main">
+    <h1>{{ props.symptomcount }}</h1>
+    <img src="../assets/container.png" alt="" class="img" />
   </div>
 </template>
 <script setup>
@@ -20,10 +20,19 @@ onMounted(() => {
 })
 </script>
 <style scoped>
-h3 {
+.main {
+  position: fixed;
+  right: 20px;
+}
+h1 {
+  font-size: 2em;
   position: absolute;
-  top: 92px;
-  right: 170px;
+  top: 96px;
+  right: 47px;
   color: red;
+}
+.img {
+  width: 150px;
+  height: 150px;
 }
 </style>
