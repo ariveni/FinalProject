@@ -19,7 +19,7 @@ export default {
         {
           category:'Circulatory System',
           symptoms:[
-            {name:"Cold Hands And Feet",status:false},
+            {name:"Cold Hands And Feets",status:false},
             {name:"Acute Liver Failure",status:false},
             {name:"Swollen Blood Vessels",status:false},
             {name:"Prominent Veins On Calf",status:false},
@@ -86,7 +86,7 @@ export default {
             {name:"Bruising",status:false},
             {name:"Puffy Face And Eyes",status:false},
             {name:"Brittle Nails",status:false},
-            {name:"Dischromic Patches",status:false}
+            {name:"Dischromic  Patches",status:false}
           ]
 
         },
@@ -110,7 +110,7 @@ export default {
             {name:"Knee Pain",status:false},
             {name:"Hip Joint Pain",status:false},
             {name:"Movement Stiffness",status:false},
-            {name:"Swollen Extremities",status:false}
+            {name:"Swollen Extremeties",status:false}
           ]
         },
         {
@@ -123,7 +123,7 @@ export default {
             {"name":"Indigestion","status":false},
             {"name":"Abdominal Pain","status":false},
             {"name":"Constipation","status":false},
-            {"name":"Diarrhea","status":false},
+            {"name":"Diarrhoea","status":false},
             {"name":"Stomach Bleeding","status":false},
             {"name":"Distention Of Abdomen","status":false}
         ]        
@@ -169,9 +169,9 @@ export default {
         {
           category:'Urine',
           symptoms:[
-            {name:"Spotting Urination",status:false},
+            {name:"Spotting  urination",status:false},
             {name:"Yellow Urine",status:false},
-            {name:"Foul Smell Of Urine",status:false},
+            {name:"Foul Smell Of urine",status:false},
             {name:"Continuous Feel Of Urine",status:false},
             {name:"Bladder Discomfort",status:false},
             {name:"Dark Urine",status:false},
@@ -185,7 +185,7 @@ export default {
           symptoms:[
             {name:"Swollen Legs",status:false},
             {name:"Painful Walking",status:false},
-            {name:"Swelling Of Joints",status:false}
+            {name:"Swelling Joints",status:false}
           ]
           
         },
@@ -209,7 +209,7 @@ export default {
             {name:"Unsteadiness",status:false},
             {name:"Weakness Of One Body Side",status:false},
             {name:"Loss Of Smell",status:false},
-            {name:"Toxic Look (Typhos)",status:false},
+            {name:"Toxic Look (typhos)",status:false},
             {name:"Coma",status:false},
             {name:"Excessive Hunger",status:false},
             {name:"Loss Of Balance",status:false},
@@ -246,7 +246,7 @@ export default {
         {
           category:'Circulatory System',
           symptoms:[
-            {name:"Cold Hands And Feet",status:false},
+            {name:"Cold Hands And Feets",status:false},
             {name:"Acute Liver Failure",status:false},
             {name:"Swollen Blood Vessels",status:false},
             {name:"Prominent Veins On Calf",status:false},
@@ -313,7 +313,7 @@ export default {
             {name:"Bruising",status:false},
             {name:"Puffy Face And Eyes",status:false},
             {name:"Brittle Nails",status:false},
-            {name:"Dischromic Patches",status:false}
+            {name:"Dischromic  Patches",status:false}
           ]
 
         },
@@ -337,7 +337,7 @@ export default {
             {name:"Knee Pain",status:false},
             {name:"Hip Joint Pain",status:false},
             {name:"Movement Stiffness",status:false},
-            {name:"Swollen Extremities",status:false}
+            {name:"Swollen Extremeties",status:false}
           ]
         },
         {
@@ -350,7 +350,7 @@ export default {
             {"name":"Indigestion","status":false},
             {"name":"Abdominal Pain","status":false},
             {"name":"Constipation","status":false},
-            {"name":"Diarrhea","status":false},
+            {"name":"Diarrhoea","status":false},
             {"name":"Stomach Bleeding","status":false},
             {"name":"Distention Of Abdomen","status":false}
         ]        
@@ -396,9 +396,9 @@ export default {
         {
           category:'Urine',
           symptoms:[
-            {name:"Spotting Urination",status:false},
+            {name:"Spotting  urination",status:false},
             {name:"Yellow Urine",status:false},
-            {name:"Foul Smell Of Urine",status:false},
+            {name:"Foul Smell Of urine",status:false},
             {name:"Continuous Feel Of Urine",status:false},
             {name:"Bladder Discomfort",status:false},
             {name:"Dark Urine",status:false},
@@ -412,7 +412,7 @@ export default {
           symptoms:[
             {name:"Swollen Legs",status:false},
             {name:"Painful Walking",status:false},
-            {name:"Swelling Of Joints",status:false}
+            {name:"Swelling Joints",status:false}
           ]
           
         },
@@ -436,7 +436,7 @@ export default {
             {name:"Unsteadiness",status:false},
             {name:"Weakness Of One Body Side",status:false},
             {name:"Loss Of Smell",status:false},
-            {name:"Toxic Look (Typhos)",status:false},
+            {name:"Toxic Look (typhos)",status:false},
             {name:"Coma",status:false},
             {name:"Excessive Hunger",status:false},
             {name:"Loss Of Balance",status:false},

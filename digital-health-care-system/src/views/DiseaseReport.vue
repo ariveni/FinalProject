@@ -50,32 +50,42 @@ const store = useStore()
 const loading = ref(false)
 const fetchData = async () => {
   loading.value = true
-  await store.dispatch('patient/getDisease')
-  setTimeout(async () => {
-    const data = await store.getters['patient/patient']
-    console.log('disease report')
-    console.log(data.disease)
+  const sympt = []
+  for (const symptom of store.getters['patient/symptoms']) {
+    sympt.push(symptom.name)
+  }
+  console.log('symp' + sympt)
+  const res = await fetch('http://127.0.0.1:5000/predict', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      symptoms: sympt
+    })
+  })
+  if (res.ok) {
+    const data = res.json()
     report.disease = data.disease
     report.prescription = data.prescription
-    console.log(report.prescription)
-    setTimeout(() => {
-      if (report.disease === '') {
-        toast('Internal Server Error!', {
-          type: 'error',
-          autoClose: 3000,
-          dangerouslyHTMLString: true
-        })
-      } else {
-        toast('Disease Predicted Successfully!', {
-          type: 'success',
-          autoClose: 2000,
-          dangerouslyHTMLString: true
-        })
-        loading.value = false
-      }
-    }, 1000)
-  }, 3000)
-
+  }
+  setTimeout(() => {
+    if (report.disease === '') {
+      toast('Internal Server Error!', {
+        type: 'error',
+        autoClose: 3000,
+        dangerouslyHTMLString: true
+      })
+      console.log('error')
+    } else {
+      toast('Disease Predicted Successfully!', {
+        type: 'success',
+        autoClose: 2000,
+        dangerouslyHTMLString: true
+      })
+      loading.value = false
+    }
+  }, 2000)
   console.log('Disease Report')
   console.log(new Date())
 }

@@ -26,6 +26,8 @@ export default {
     },
     async getDisease(state)
     {
+      state.disease = '';
+      state.prescription = [];
       const sympt =[]
       for( const symptom of state.patient.symptoms)
       {
