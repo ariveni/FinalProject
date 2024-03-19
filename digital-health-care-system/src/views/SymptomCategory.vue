@@ -81,10 +81,10 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  d="M3 12l2-2m0 src\assets\location\0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 />
               </svg> -->
-              <!-- <img :src="getIcon(loc)" alt="" class="w-6 h-6" aria-hidden="true" /> -->
+              <img :src="getIcon(loc)" alt="" class="w-6 h-6" aria-hidden="true" />
               <span :class="selectedLocation(loc)">{{ loc }}</span>
             </div>
           </nav>
@@ -131,6 +131,10 @@ const isSidebarOpen = ref(false)
 const changeSidebarStatus = function () {
   isSidebarOpen.value = !isSidebarOpen.value
 }
+const getIcon = (loc) => {
+  console.log('../assets/location/' + loc + '.jpg')
+  return `../assets/location/${loc}.jpg`
+}
 const selectedLocation = (value) => {
   if (props.opted === value) {
     return 'block font-extrabold text-green-700'
@@ -140,10 +144,6 @@ const selectedLocation = (value) => {
 const selectSymptomCategory = (value) => {
   isSidebarOpen.value = !isSidebarOpen.value
   emit('activateLocation', value)
-}
-const getIcon = (value) => {
-  console.log('../assets/location/' + value + '.jpg')
-  return '../assets/location/' + value + '.jpg'
 }
 </script>
 

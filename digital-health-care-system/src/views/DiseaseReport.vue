@@ -12,6 +12,7 @@
     <main
       v-else
       class="space-y-10 mb-40 p-40 flex bg-[url(src/assets/HomePage.jpg)] bg-cover bg-center bg-no-repeat"
+      refs="content"
     >
       <div>
         <img src="../assets/Doctor.png" alt="" class="img-css" />
@@ -56,22 +57,58 @@
             </li>
           </ul>
         </div>
+        <div v-if="0">
+          <h4>{{ report.disease }}</h4>
+          <ul>
+            <li
+              class="w-full bg-gray-100 p-3 rounded-md"
+              v-for="id in report.prescription"
+              :key="id"
+            >
+              {{ id.charAt(0).toUpperCase() + id.slice(1) }}
+            </li>
+          </ul>
+          <h4>Reported by Digital Health care System</h4>
+        </div>
+        <button
+          class="group inline-flex w-full items-center justify-center rounded-md bg-green-500 px-2 py-2 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-green-800"
+          @click="download"
+        >
+          Download Report
+        </button>
       </div>
     </main>
   </AppLayout>
 </template>
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue'
+//import DownloadPdf from './DownloadPfd.vue'
 import { useStore } from 'vuex'
 import { onMounted, reactive, ref } from 'vue'
 import { toast } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
+import jspdf from 'jspdf'
 const report = reactive({
   disease: '',
   prescription: []
 })
 const store = useStore()
 const loading = ref(false)
+const download = () => {
+  const pdf = new jspdf()
+  const html = document.querySelector("[refs='content']").innerHTML // Change this line
+  console.log(html)
+  // html = this.$refs.content.innerHTML
+  pdf.html(html, {
+    x: -100,
+    y: 10,
+
+    callback: () => {
+      pdf.save('report.pdf') // Ensure PDF is saved properly
+    }
+  })
+  console.log(pdf)
+}
 const fetchData = async () => {
   loading.value = true
   const sympt = []

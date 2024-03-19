@@ -28,6 +28,21 @@ const router = createRouter({
       component: DiseaseReport
     }
   ]
+});
+router.beforeEach((to,from,next) => {
+  if(to.name === 'DiseaseReport')
+  {
+    if(from.name !== 'SelectedSymptoms')
+    {
+      next('/');
+    }
+    else{
+      next();
+    }
+  }
+else{
+  next();
+}
 })
 
 export default router

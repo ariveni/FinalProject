@@ -11,7 +11,7 @@
         <h1
           class="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-teal-500 text-5xl font-black"
         >
-          Symptoms
+          {{ props.location }} Symptoms
         </h1>
       </div>
       <div
@@ -23,7 +23,10 @@
               class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"
             ></div>
           </div>
-          <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full">
+          <div
+            class="relative overflow-hidden shadow-md rounded-xl h-full"
+            :class="getColor(Symptom.status)"
+          >
             <div class="p-9">
               <!-- <svg
                 class="w-12 h-12 mx-auto text-gray-400 sm:mx-0"
@@ -65,7 +68,7 @@
                 ></ellipse>
               </svg> -->
               <div class="flex justify-between">
-                <h3 :class="getBg(Symptom.status)">{{ Symptom.name }}</h3>
+                <h3 class="text-2xl font-bold text-gray-900">{{ Symptom.name }}</h3>
                 <img
                   v-if="!Symptom.status"
                   src="../assets/add.png"
@@ -100,11 +103,12 @@ const props = defineProps({
 const emit = defineEmits(['addSymptom', 'removeSymptom'])
 const store = useStore()
 const symptoms = ref([])
-const getBg = (status) => {
+
+const getColor = (status) => {
   if (status) {
-    return 'text-2xl font-bold text-green-700'
+    return 'bg-green-500'
   }
-  return 'text-2xl font-bold text-gray-900'
+  return 'bg-white'
 }
 const addSymptom = async (data) => {
   const payload = reactive({
